@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0B1120">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="#111827">
+
+        <Button
+            android:id="@+id/chatBackButton"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:minWidth="0dp"
+            android:text="‹"
+            android:textSize="28sp"
+            android:textColor="#F8FAFC"
+            android:backgroundTint="#263247"
+            android:contentDescription="Back to chats" />
+
+        <TextView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            android:background="#29234F"
+            android:text="?"
+            android:textColor="#B8ACFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:id="@+id/chatPeerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Private conversation"
+                android:textColor="#F8FAFC"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chatPeerStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not connected"
+                android:textColor="#94A3B8"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#263247" />
+
+    <FrameLayout
+        android:id="@+id/videoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:background="#05080F">
+        <org.webrtc.SurfaceViewRenderer android:id="@+id/remoteVideoRenderer" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <org.webrtc.SurfaceViewRenderer android:id="@+id/localVideoRenderer" android:layout_width="104dp" android:layout_height="140dp" android:layout_gravity="top|end" android:layout_margin="8dp" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/chatScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/messagesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#263247" />
+
+    <LinearLayout
+        android:id="@+id/chatFeatureButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+        <Button android:id="@+id/audioCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="Audio call" android:textAllCaps="false" />
+        <Button android:id="@+id/videoCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="Video call" android:textAllCaps="false" />
+        <Button android:id="@+id/attachFileButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="＋ File" android:textAllCaps="false" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/callControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:background="#111827">
+        <Button android:id="@+id/muteCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="Mute" android:textAllCaps="false" />
+        <Button android:id="@+id/speakerCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="Speaker" android:textAllCaps="false" />
+        <Button android:id="@+id/cameraCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="Camera off" android:textAllCaps="false" />
+        <Button android:id="@+id/switchCameraButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="Flip" android:textAllCaps="false" />
+        <Button android:id="@+id/endCallButton" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="6dp" android:text="End" android:textAllCaps="false" android:backgroundTint="#B91C1C" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/chatComposer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/messageInput"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:hint="Write a message..."
+            android:singleLine="true"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:imeOptions="actionSend"
+            android:paddingHorizontal="14dp"
+            android:textColor="#F8FAFC"
+            android:textColorHint="#94A3B8"
+            android:backgroundTint="#64748B" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:minWidth="0dp"
+            android:text="Send"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

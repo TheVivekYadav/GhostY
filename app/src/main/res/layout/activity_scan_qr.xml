@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0B1120"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/scanQrBackButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:text="‹   Back"
+        android:textColor="#B8ACFF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Scan pairing QR"
+        android:textColor="#F8FAFC"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Align the invitation QR inside the frame."
+        android:textColor="#94A3B8"
+        android:textSize="14sp" />
+
+    <FrameLayout
+        android:id="@+id/cameraPreviewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="#172033">
+
+        <TextView
+            android:id="@+id/cameraPreviewPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="Camera preview will appear here"
+            android:textColor="#94A3B8"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:background="@drawable/qr_scan_frame" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/scanQrStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Waiting for camera..."
+        android:textColor="#F8FAFC"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/scanQrCancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:text="Cancel scanning"
+        android:textAllCaps="false" />
+
+</LinearLayout>
